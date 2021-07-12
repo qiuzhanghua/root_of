@@ -10,13 +10,13 @@ fn main() {
             match pb.read_link() {
                 Ok(pb2) => match pb2.canonicalize() {
                     Ok(pb3) => {
-                        println!("{}", pb3.display())
+                        print!("{}", pb3.display())
                     }
                     Err(_) => exit(-2),
                 },
                 Err(_) => match pb.canonicalize() {
                     Ok(pb3) => {
-                        println!("{}", pb3.display())
+                        print!("{}", pb3.display())
                     }
                     Err(_) => exit(-2),
                 },
