@@ -1,7 +1,13 @@
 [package]
 name = "root_of"
-version = "0.1.0"
+version = "0.3.0"
 authors = ["邱张华 <qiuzhanghua@icloud.com>"]
 edition = "2018"
+build = "build.rs"
 
 [dependencies]
+shadow-rs = "0.6"
+clap = "2"
+
+[build-dependencies]
+shadow-rs = "0.6"

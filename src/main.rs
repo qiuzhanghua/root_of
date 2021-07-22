@@ -1,12 +1,15 @@
+use clap::App;
+use shadow_rs::shadow;
 use std::process::exit;
+shadow!(build);
 
 fn main() {
-    //std::env::consts::OS;
+    App::new(build::PROJECT_NAME)
+        .version(build::PKG_VERSION)
+        .author(format!("Author: {} <{}>", build::COMMIT_AUTHOR, build::COMMIT_EMAIL).as_str())
+        .get_matches();
     match std::env::current_exe() {
         Ok(pb) => {
-            // pb.symlink_metadata()
-            // println!("{}", pb.display());
-            //std::fs::read_link(pb);
             match std::env::consts::FAMILY {
                 "windows" => match pb.read_link() {
                     Ok(pb3) => print!("{}", pb3.parent().unwrap().display()),
